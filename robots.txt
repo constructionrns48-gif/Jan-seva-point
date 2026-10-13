@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://jansevapoint.shop/sitemap.xml
