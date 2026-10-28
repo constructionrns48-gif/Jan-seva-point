@@ -37,7 +37,7 @@ main img,main video{max-width:100%}
  .search-concept h2{font-size:23px}
  .sc-row{padding:12px 8px;gap:8px}.sc-symbol{display:none}
  .phone-row input{min-width:0}
- .grid,.svc-gallery,.gallery{grid-template-columns:1fr}
+ .grid{grid-template-columns:1fr}.svc-gallery,.gallery{grid-template-columns:repeat(2,1fr);gap:10px}
  .jsp-footer-grid{gap:24px}.footer-links{gap:0 10px}
  .footer-credit{max-width:100%;overflow-wrap:anywhere}
 }
