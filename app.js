@@ -162,6 +162,10 @@ const T = {
     en: 'Services',
     hi: 'सेवाएं'
   },
+  nav_municipal: {
+    en: 'Municipal Services',
+    hi: 'नगर पालिका सेवाएं'
+  },
   nav_about: {
     en: 'About',
     hi: 'हमारे बारे में'
@@ -494,7 +498,7 @@ const onLangLink=e=>{const a=e.target.closest('a[href]');if(!a||e.ctrlKey||e.met
   const [page] = useState(window.__PAGE); const setPage = id => {location.href = pageURL(id);}; const pageURL = id => (id === 'blog' ? '/blog.html' : window.__PATHS[id]) + (lang === 'hi' ? '?lang=hi' : '');
   const [detail] = useState(window.__DETAIL || 'Aadhaar/PAN');
   const t = k => T[k] ? T[k][lang] : (k === 'Blog' && lang === 'hi' ? 'ब्लॉग' : k);
-  const NAV = [['home', 'nav_home'], ['services', 'nav_services'], ['about', 'nav_about'], ['gallery', 'nav_gallery'], ['faq', 'nav_faq'], ['terms', 'nav_terms'], ['contact', 'nav_contact'],['blog','Blog']];
+  const NAV = [['home', 'nav_home'], ['services', 'nav_services'], ['municipal', 'nav_municipal'], ['about', 'nav_about'], ['gallery', 'nav_gallery'], ['faq', 'nav_faq'], ['terms', 'nav_terms'], ['contact', 'nav_contact'],['blog','Blog']];
   return /*#__PURE__*/React.createElement(LanguageContext.Provider, {
     value: lang
   }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("header", null, /*#__PURE__*/React.createElement("div", {
