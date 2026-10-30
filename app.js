@@ -3,6 +3,13 @@ const {
   useEffect
 } = React;
 
+/* Tours dropdown styles (site-wide, injected so every page gets them with the app bundle) */
+(function () {
+  var st = document.createElement('style');
+  st.textContent = ".nav-drop{position:relative;display:inline-flex}.nav-drop>a{display:inline-flex;align-items:center}.nav-caret{margin-left:5px;font-size:.62rem}.nav-sub{display:none;position:absolute;top:100%;left:0;min-width:230px;background:#fff;border-radius:12px;box-shadow:0 14px 44px rgba(11,31,77,.22);padding:8px;z-index:300;flex-direction:column;text-align:left}.nav-sub a{display:block;padding:11px 14px;color:#141a26 !important;font-weight:600 !important;border-radius:8px;font-size:.9rem;min-height:44px;line-height:1.3;background:transparent !important;box-shadow:none !important}.nav-sub a:hover{background:#eef4fc !important}.nav-drop:hover .nav-sub,.nav-drop:focus-within .nav-sub,.nav-drop.open .nav-sub{display:flex}@media(max-width:900px){.nav-drop{width:100%;flex-direction:column;align-items:stretch}.nav-sub{position:static;box-shadow:none;background:rgba(255,255,255,.1);margin-top:2px;border-radius:10px}.nav-sub a{color:#fff !important;min-height:44px}}";
+  document.head.appendChild(st);
+})();
+
 /* BANNERS moved outside babel */
 const BANNERS = window.__BANNERS || [];
 const LanguageContext = React.createContext('en');
@@ -165,6 +172,34 @@ const T = {
   nav_municipal: {
     en: 'Municipal Services',
     hi: 'नगर पालिका सेवाएं'
+  },
+  nav_tours: {
+    en: 'Tours',
+    hi: 'टूर्स'
+  },
+  nav_tours_all: {
+    en: 'All Tours & Travel',
+    hi: 'सभी टूर्स और ट्रैवल'
+  },
+  nav_tours_kainchi: {
+    en: 'Kainchi Dham Package',
+    hi: 'कैंची धाम पैकेज'
+  },
+  nav_tours_flight: {
+    en: 'Flight Booking',
+    hi: 'फ्लाइट बुकिंग'
+  },
+  nav_tours_cab: {
+    en: 'Cab Booking',
+    hi: 'कैब बुकिंग'
+  },
+  nav_tours_train: {
+    en: 'Train Booking',
+    hi: 'ट्रेन बुकिंग'
+  },
+  nav_tours_bus: {
+    en: 'Bus Booking',
+    hi: 'बस बुकिंग'
   },
   nav_about: {
     en: 'About',
@@ -495,10 +530,12 @@ function App() {
     document.querySelectorAll('[data-whatsapp-web]').forEach(e => e.textContent = tr('Open WhatsApp Web', lang));
 const onLangLink=e=>{const a=e.target.closest('a[href]');if(!a||e.ctrlKey||e.metaKey||e.shiftKey||e.altKey)return;const u=new URL(a.href,location.href);if(u.origin===location.origin&&/\.html$|\/$/.test(u.pathname)){if(lang==='hi')u.searchParams.set('lang','hi');else u.searchParams.delete('lang');if(u.href!==a.href){e.preventDefault();location.href=u.href}}};document.addEventListener('click',onLangLink);const onToggle=e=>{if(e.target.matches('details.service-expand')&&e.target.open)document.querySelectorAll('details.service-expand').forEach(d=>{if(d!==e.target)d.open=false})};document.addEventListener('toggle',onToggle,true);const onWA=e=>{const a=e.target.closest('[data-approved-whatsapp]');if(!a)return;let msg=lang==='hi'?HI_ENQUIRY_LINKS.welcome.message:'Welcome to Jan Seva Point, how may I assist you?';try{const t=new URL(a.href,location.href).searchParams.get('text');if(t)msg=t}catch(err){}openWhatsApp(e,msg)};document.addEventListener('click',onWA);return()=>{document.removeEventListener('click',onLangLink);document.removeEventListener('toggle',onToggle,true);document.removeEventListener('click',onWA)};
   }, [lang]);
-  const [page] = useState(window.__PAGE); const setPage = id => {location.href = pageURL(id);}; const pageURL = id => (id === 'blog' ? '/blog.html' : window.__PATHS[id]) + (lang === 'hi' ? '?lang=hi' : '');
+  const [page] = useState(window.__PAGE); const [toursOpen, setToursOpen] = useState(false); const setPage = id => {location.href = pageURL(id);}; const pageURL = id => (id === 'blog' ? '/blog.html' : window.__PATHS[id]) + (lang === 'hi' ? '?lang=hi' : '');
   const [detail] = useState(window.__DETAIL || 'Aadhaar/PAN');
   const t = k => T[k] ? T[k][lang] : (k === 'Blog' && lang === 'hi' ? 'ब्लॉग' : k);
-  const NAV = [['home', 'nav_home'], ['services', 'nav_services'], ['municipal', 'nav_municipal'], ['about', 'nav_about'], ['gallery', 'nav_gallery'], ['faq', 'nav_faq'], ['terms', 'nav_terms'], ['contact', 'nav_contact'],['blog','Blog']];
+  const NAV = [['home', 'nav_home'], ['services', 'nav_services'], ['municipal', 'nav_municipal'], ['tours', 'nav_tours'], ['gallery', 'nav_gallery'], ['faq', 'nav_faq'], ['terms', 'nav_terms'], ['contact', 'nav_contact'],['blog','Blog']];
+  const FOOT_NAV = [['home', 'nav_home'], ['services', 'nav_services'], ['municipal', 'nav_municipal'], ['tours', 'nav_tours'], ['about', 'nav_about'], ['gallery', 'nav_gallery'], ['faq', 'nav_faq'], ['terms', 'nav_terms'], ['contact', 'nav_contact'],['blog','Blog']];
+  const TOURS_SUB = [['/tours.html', 'nav_tours_all'], ['/tours-kainchi-dham-neem-karoli-baba.html', 'nav_tours_kainchi'], ['/tours-flight-booking.html', 'nav_tours_flight'], ['/tours-cab-booking.html', 'nav_tours_cab'], ['/tours-train-booking.html', 'nav_tours_train'], ['/tours-bus-booking.html', 'nav_tours_bus']];
   return /*#__PURE__*/React.createElement(LanguageContext.Provider, {
     value: lang
   }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("header", null, /*#__PURE__*/React.createElement("div", {
@@ -520,7 +557,28 @@ const onLangLink=e=>{const a=e.target.closest('a[href]');if(!a||e.ctrlKey||e.met
     text: "Lok Mitra Kendra \xB7 Amb & Una"
   })))), /*#__PURE__*/React.createElement("div", {
     className: "navwrap"
-  }, /*#__PURE__*/React.createElement("nav", null, NAV.map(([id, key]) => /*#__PURE__*/React.createElement("a", {
+  }, /*#__PURE__*/React.createElement("nav", null, NAV.map(([id, key]) => id === 'tours' ? /*#__PURE__*/React.createElement("span", {
+    key: id,
+    className: "nav-drop" + (toursOpen ? " open" : "")
+  }, /*#__PURE__*/React.createElement("a", {
+    className: page === id ? 'active' : '',
+    href: pageURL(id),
+    onClick: e => {
+      if (window.innerWidth <= 900 && !toursOpen) {
+        e.preventDefault();
+        e.stopPropagation();
+        setToursOpen(true);
+      }
+    }
+  }, t(key), /*#__PURE__*/React.createElement("span", {
+    className: "nav-caret",
+    "aria-hidden": "true"
+  }, "\u25BE")), /*#__PURE__*/React.createElement("span", {
+    className: "nav-sub"
+  }, TOURS_SUB.map(([url, tkey]) => /*#__PURE__*/React.createElement("a", {
+    key: url,
+    href: url
+  }, t(tkey))))) : /*#__PURE__*/React.createElement("a", {
     key: id,
     className: page === id ? 'active' : '',
     href: pageURL(id)
@@ -772,7 +830,7 @@ const onLangLink=e=>{const a=e.target.closest('a[href]');if(!a||e.ctrlKey||e.met
     text: "Quick links"
   })), /*#__PURE__*/React.createElement("div", {
     className: "footer-links"
-  }, NAV.map(([id, key]) => /*#__PURE__*/React.createElement("a", {
+  }, FOOT_NAV.map(([id, key]) => /*#__PURE__*/React.createElement("a", {
     key: id,
     href: pageURL(id)
   }, (T[key] ? T[key][lang] : (key === "Blog" && lang === "hi" ? "ब्लॉग" : key)))), /*#__PURE__*/React.createElement("button", {
@@ -1662,3 +1720,17 @@ function ContactForm({
   })), " ", t('hours_val')))));
 }
 ReactDOM.createRoot(document.getElementById('root')).render(/*#__PURE__*/React.createElement(App, null));
+/* Travel enquiry forms (flight/cab) -> open WhatsApp draft */
+document.addEventListener('submit', function (e) {
+  var f = e.target;
+  if (!f || !f.classList || !f.classList.contains('travel-enquiry-form')) return;
+  e.preventDefault();
+  var kind = f.getAttribute('data-enquiry') || 'travel';
+  var names = {flight: 'flight booking', cab: 'cab booking', train: 'train ticket booking', bus: 'bus ticket booking'};
+  var service = names[kind] || 'travel';
+  var from = (f.elements['from'] && f.elements['from'].value || '').trim();
+  var to = (f.elements['to'] && f.elements['to'].value || '').trim();
+  var remarks = (f.elements['remarks'] && f.elements['remarks'].value || '').trim();
+  var msg = 'Hello Jan Seva Point, I need help with ' + service + '.\nFrom: ' + from + '\nTo: ' + to + '\nRemarks: ' + remarks;
+  window.open('https://wa.me/918219037234?text=' + encodeURIComponent(msg), '_blank', 'noopener');
+});
