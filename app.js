@@ -444,7 +444,7 @@ function BannerSlider() {
 function openWhatsApp(event, message) {
   if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) return false;
   event.preventDefault();
-  const source = event.currentTarget;
+  const source = (event.currentTarget && event.currentTarget.tagName) ? event.currentTarget : (event.target && event.target.closest ? (event.target.closest('[data-approved-whatsapp]') || event.target.closest('form') || event.target) : event.target);
   const anchor = source.tagName === 'FORM' ? source.querySelector('button[type="submit"]') : source;
   const encoded = encodeURIComponent(message);
   let fallback = anchor.parentElement.querySelector('[data-whatsapp-web]');
