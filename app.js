@@ -227,8 +227,8 @@ const T = {
     hi: "अंब, पूरे ऊना जिले, मुबारकपुर, दौलतपुर, धौतपुर, कलरुही और पूरे हिमाचल प्रदेश के लिए लोक मित्र केंद्र। सरकारी ऑनलाइन सेवाएं, प्रमाण पत्र, फॉर्म, बिल भुगतान और लाइसेंस आवेदन व नवीनीकरण में सहायता। Jan Seva Point आपका भरोसेमंद LMK केंद्र है।"
   },
   home_extra_p2: {
-    en: 'Best Lok Mitra Kendra for Amb, Una district, Mubarakpur, Daulatpur and all Himachal. Visit Jan Seva Point for easy citizen services.',
-    hi: "अंब, ऊना जिले, मुबारकपुर, दौलतपुर और पूरे हिमाचल के लिए बेहतरीन लोक मित्र केंद्र। आसान नागरिक सेवाओं के लिए Jan Seva Point आएं।"
+    en: 'Best Lok Mitra Kendra for Amb, Una district, Mubarakpur, Daulatpur and all Himachal. Visit Jan Seva Point for easy citizen services. Searching online for a Lok Mitra Kendra, CSC centre, Jan Seva Kendra or Jan Seva Point near you? If you are in Amb, Una or a nearby area, contact Jan Seva Point to check the service and documents you need.',
+    hi: "अंब, ऊना जिले, मुबारकपुर, दौलतपुर और पूरे हिमाचल के लिए बेहतरीन लोक मित्र केंद्र। आसान नागरिक सेवाओं के लिए Jan Seva Point आएं। अपने पास लोक मित्र केंद्र, CSC सेंटर, जन सेवा केंद्र या जन सेवा पॉइंट ऑनलाइन खोज रहे हैं? अंब, ऊना या आस-पास के इलाके में हैं तो Jan Seva Point से संपर्क करें और अपनी सेवा व ज़रूरी दस्तावेज़ की पुष्टि करें।"
   },
   home_rate_note: {
     en: 'Authorised Lok Mitra Kendra for G2C Himachal Online Seva, certificates, form filling, bill payment and digital citizen services in Amb & Una.',
