@@ -185,6 +185,10 @@ const T = {
     en: 'Kainchi Dham Package',
     hi: 'कैंची धाम पैकेज'
   },
+  nav_tours_shakti: {
+    en: 'Shakti Peeth Yatra',
+    hi: 'शक्ति पीठ यात्रा'
+  },
   nav_tours_flight: {
     en: 'Flight Booking',
     hi: 'फ्लाइट बुकिंग'
@@ -535,7 +539,7 @@ const onLangLink=e=>{const a=e.target.closest('a[href]');if(!a||e.ctrlKey||e.met
   const t = k => T[k] ? T[k][lang] : (k === 'Blog' && lang === 'hi' ? 'ब्लॉग' : k);
   const NAV = [['home', 'nav_home'], ['services', 'nav_services'], ['municipal', 'nav_municipal'], ['tours', 'nav_tours'], ['gallery', 'nav_gallery'], ['faq', 'nav_faq'], ['terms', 'nav_terms'], ['contact', 'nav_contact'],['blog','Blog']];
   const FOOT_NAV = [['home', 'nav_home'], ['services', 'nav_services'], ['municipal', 'nav_municipal'], ['tours', 'nav_tours'], ['about', 'nav_about'], ['gallery', 'nav_gallery'], ['faq', 'nav_faq'], ['terms', 'nav_terms'], ['contact', 'nav_contact'],['blog','Blog']];
-  const TOURS_SUB = [['/tours.html', 'nav_tours_all'], ['/tours-kainchi-dham-neem-karoli-baba.html', 'nav_tours_kainchi'], ['/tours-flight-booking.html', 'nav_tours_flight'], ['/tours-cab-booking.html', 'nav_tours_cab'], ['/tours-train-booking.html', 'nav_tours_train'], ['/tours-bus-booking.html', 'nav_tours_bus']];
+  const TOURS_SUB = [['/tours.html', 'nav_tours_all'], ['/tours-kainchi-dham-neem-karoli-baba.html', 'nav_tours_kainchi'], ['/tours-shakti-peeth-yatra.html', 'nav_tours_shakti'], ['/tours-flight-booking.html', 'nav_tours_flight'], ['/tours-cab-booking.html', 'nav_tours_cab'], ['/tours-train-booking.html', 'nav_tours_train'], ['/tours-bus-booking.html', 'nav_tours_bus']];
   return /*#__PURE__*/React.createElement(LanguageContext.Provider, {
     value: lang
   }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("header", null, /*#__PURE__*/React.createElement("div", {
