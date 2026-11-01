@@ -221,6 +221,22 @@ const T = {
     en: 'Terms',
     hi: 'नियम'
   },
+  nav_calc: {
+    en: 'Calculator',
+    hi: 'कैलकुलेटर'
+  },
+  nav_calc_emi: {
+    en: 'EMI Calculator',
+    hi: 'EMI कैलकुलेटर'
+  },
+  nav_calc_curr: {
+    en: 'Currency Calculator',
+    hi: 'करेंसी कैलकुलेटर'
+  },
+  nav_calc_dob: {
+    en: 'Date of Birth Calculator',
+    hi: 'जन्मतिथि कैलकुलेटर'
+  },
   nav_contact: {
     en: 'Contact',
     hi: 'संपर्क'
@@ -534,12 +550,13 @@ function App() {
     document.querySelectorAll('[data-whatsapp-web]').forEach(e => e.textContent = tr('Open WhatsApp Web', lang));
 const onLangLink=e=>{const a=e.target.closest('a[href]');if(!a||e.ctrlKey||e.metaKey||e.shiftKey||e.altKey)return;const u=new URL(a.href,location.href);if(u.origin===location.origin&&/\.html$|\/$/.test(u.pathname)){if(lang==='hi')u.searchParams.set('lang','hi');else u.searchParams.delete('lang');if(u.href!==a.href){e.preventDefault();location.href=u.href}}};document.addEventListener('click',onLangLink);const onToggle=e=>{if(e.target.matches('details.service-expand')&&e.target.open)document.querySelectorAll('details.service-expand').forEach(d=>{if(d!==e.target)d.open=false})};document.addEventListener('toggle',onToggle,true);const onWA=e=>{const a=e.target.closest('[data-approved-whatsapp]');if(!a)return;let msg=lang==='hi'?HI_ENQUIRY_LINKS.welcome.message:'Welcome to Jan Seva Point, how may I assist you?';try{const t=new URL(a.href,location.href).searchParams.get('text');if(t)msg=t}catch(err){}openWhatsApp(e,msg)};document.addEventListener('click',onWA);return()=>{document.removeEventListener('click',onLangLink);document.removeEventListener('toggle',onToggle,true);document.removeEventListener('click',onWA)};
   }, [lang]);
-  const [page] = useState(window.__PAGE); const [toursOpen, setToursOpen] = useState(false); const setPage = id => {location.href = pageURL(id);}; const pageURL = id => (id === 'blog' ? '/blog.html' : window.__PATHS[id]) + (lang === 'hi' ? '?lang=hi' : '');
+  const [page] = useState(window.__PAGE); const [toursOpen, setToursOpen] = useState(false); const [calcOpen, setCalcOpen] = useState(false); const setPage = id => {location.href = pageURL(id);}; const pageURL = id => (id === 'blog' ? '/blog.html' : window.__PATHS[id]) + (lang === 'hi' ? '?lang=hi' : '');
   const [detail] = useState(window.__DETAIL || 'Aadhaar/PAN');
   const t = k => T[k] ? T[k][lang] : (k === 'Blog' && lang === 'hi' ? 'ब्लॉग' : k);
-  const NAV = [['home', 'nav_home'], ['services', 'nav_services'], ['municipal', 'nav_municipal'], ['tours', 'nav_tours'], ['gallery', 'nav_gallery'], ['faq', 'nav_faq'], ['terms', 'nav_terms'], ['contact', 'nav_contact'],['blog','Blog']];
+  const NAV = [['home', 'nav_home'], ['services', 'nav_services'], ['municipal', 'nav_municipal'], ['tours', 'nav_tours'], ['gallery', 'nav_gallery'], ['faq', 'nav_faq'], ['calc', 'nav_calc'], ['contact', 'nav_contact'],['blog','Blog']];
   const FOOT_NAV = [['home', 'nav_home'], ['services', 'nav_services'], ['municipal', 'nav_municipal'], ['tours', 'nav_tours'], ['about', 'nav_about'], ['gallery', 'nav_gallery'], ['faq', 'nav_faq'], ['terms', 'nav_terms'], ['contact', 'nav_contact'],['blog','Blog']];
   const TOURS_SUB = [['/tours.html', 'nav_tours_all'], ['/tours-kainchi-dham-neem-karoli-baba.html', 'nav_tours_kainchi'], ['/tours-shakti-peeth-yatra.html', 'nav_tours_shakti'], ['/tours-flight-booking.html', 'nav_tours_flight'], ['/tours-cab-booking.html', 'nav_tours_cab'], ['/tours-train-booking.html', 'nav_tours_train'], ['/tours-bus-booking.html', 'nav_tours_bus']];
+  const CALC_SUB = [['/emi-calculator.html', 'nav_calc_emi'], ['/currency-calculator.html', 'nav_calc_curr'], ['/dob-calculator.html', 'nav_calc_dob']];
   return /*#__PURE__*/React.createElement(LanguageContext.Provider, {
     value: lang
   }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("header", null, /*#__PURE__*/React.createElement("div", {
@@ -561,17 +578,17 @@ const onLangLink=e=>{const a=e.target.closest('a[href]');if(!a||e.ctrlKey||e.met
     text: "Lok Mitra Kendra \xB7 Amb & Una"
   })))), /*#__PURE__*/React.createElement("div", {
     className: "navwrap"
-  }, /*#__PURE__*/React.createElement("nav", null, NAV.map(([id, key]) => id === 'tours' ? /*#__PURE__*/React.createElement("span", {
+  }, /*#__PURE__*/React.createElement("nav", null, NAV.map(([id, key]) => (id === 'tours' || id === 'calc') ? /*#__PURE__*/React.createElement("span", {
     key: id,
-    className: "nav-drop" + (toursOpen ? " open" : "")
+    className: "nav-drop" + ((id === 'tours' ? toursOpen : calcOpen) ? " open" : "")
   }, /*#__PURE__*/React.createElement("a", {
     className: page === id ? 'active' : '',
-    href: pageURL(id),
+    href: id === 'calc' ? '/emi-calculator.html' + (lang === 'hi' ? '?lang=hi' : '') : pageURL(id),
     onClick: e => {
-      if (window.innerWidth <= 900 && !toursOpen) {
+      if (window.innerWidth <= 900 && !(id === 'tours' ? toursOpen : calcOpen)) {
         e.preventDefault();
         e.stopPropagation();
-        setToursOpen(true);
+        (id === 'tours' ? setToursOpen : setCalcOpen)(true);
       }
     }
   }, t(key), /*#__PURE__*/React.createElement("span", {
@@ -579,9 +596,9 @@ const onLangLink=e=>{const a=e.target.closest('a[href]');if(!a||e.ctrlKey||e.met
     "aria-hidden": "true"
   }, "\u25BE")), /*#__PURE__*/React.createElement("span", {
     className: "nav-sub"
-  }, TOURS_SUB.map(([url, tkey]) => /*#__PURE__*/React.createElement("a", {
+  }, (id === 'tours' ? TOURS_SUB : CALC_SUB).map(([url, tkey]) => /*#__PURE__*/React.createElement("a", {
     key: url,
-    href: url
+    href: id === 'calc' && lang === 'hi' ? url + '?lang=hi' : url
   }, t(tkey))))) : /*#__PURE__*/React.createElement("a", {
     key: id,
     className: page === id ? 'active' : '',
