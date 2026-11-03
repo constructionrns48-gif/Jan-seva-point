@@ -282,8 +282,8 @@ const T = {
     hi: "गार्डन कॉलोनी, नेहरिया रोड, HPPWD विश्राम गृह के सामने, तहसील अंब, हिमाचल प्रदेश 177203"
   },
   home_extra_title: {
-    en: 'Lok Mitra Kendra Amb & Una – Jan Seva Point',
-    hi: "लोक मित्र केंद्र अंब और ऊना - Jan Seva Point"
+    en: 'Jan Seva Point: Lok Mitra Kendra and Jan Seva Kendra in Amb, Una',
+    hi: "जन सेवा पॉइंट: अंब, ऊना में लोक मित्र केंद्र और जन सेवा केंद्र"
   },
   home_extra_p1: {
     en: 'Lok Mitra Kendra serving Amb, Una (all district), Mubarakpur, Daulatpur, Dhautpur, Kalruhi and all Himachal Pradesh – LMK, G2C, government online services, certificates, form filling, bill payment, license apply & renew. Jan Seva Point is your trusted LMK Centre.',
@@ -1724,3 +1724,21 @@ document.addEventListener('submit', function (e) {
   var msg = 'Hello Jan Seva Point, I need help with ' + service + '.\nFrom: ' + from + '\nTo: ' + to + '\nRemarks: ' + remarks;
   window.open('https://wa.me/918219037234?text=' + encodeURIComponent(msg), '_blank', 'noopener');
 });
+
+// Sitewide faint Jan Seva Point logo watermark
+(function(){
+  function addWm(){
+    if (document.getElementById('jsp-watermark')) return;
+    var d = document.createElement('div');
+    d.id = 'jsp-watermark';
+    d.setAttribute('aria-hidden','true');
+    d.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:55%;max-width:420px;opacity:0.06;pointer-events:none;z-index:0';
+    var img = document.createElement('img');
+    img.src = 'icon-192.png';
+    img.alt = '';
+    img.style.width = '100%';
+    d.appendChild(img);
+    document.body.appendChild(d);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', addWm); else addWm();
+})();
