@@ -237,6 +237,10 @@ const T = {
     en: 'Date of Birth Calculator',
     hi: 'जन्मतिथि कैलकुलेटर'
   },
+  nav_calc_all: {
+    en: 'All Calculators',
+    hi: 'सभी कैलकुलेटर'
+  },
   nav_contact: {
     en: 'Contact',
     hi: 'संपर्क'
@@ -556,7 +560,7 @@ const onLangLink=e=>{const a=e.target.closest('a[href]');if(!a||e.ctrlKey||e.met
   const NAV = [['home', 'nav_home'], ['services', 'nav_services'], ['municipal', 'nav_municipal'], ['tours', 'nav_tours'], ['gallery', 'nav_gallery'], ['faq', 'nav_faq'], ['calc', 'nav_calc'], ['contact', 'nav_contact'],['blog','Blog']];
   const FOOT_NAV = [['home', 'nav_home'], ['services', 'nav_services'], ['municipal', 'nav_municipal'], ['tours', 'nav_tours'], ['about', 'nav_about'], ['gallery', 'nav_gallery'], ['faq', 'nav_faq'], ['terms', 'nav_terms'], ['contact', 'nav_contact'],['blog','Blog']];
   const TOURS_SUB = [['/tours.html', 'nav_tours_all'], ['/tours-kainchi-dham-neem-karoli-baba.html', 'nav_tours_kainchi'], ['/tours-shakti-peeth-yatra.html', 'nav_tours_shakti'], ['/tours-flight-booking.html', 'nav_tours_flight'], ['/tours-cab-booking.html', 'nav_tours_cab'], ['/tours-train-booking.html', 'nav_tours_train'], ['/tours-bus-booking.html', 'nav_tours_bus']];
-  const CALC_SUB = [['/emi-calculator.html', 'nav_calc_emi'], ['/currency-calculator.html', 'nav_calc_curr'], ['/dob-calculator.html', 'nav_calc_dob']];
+  const CALC_SUB = [['/calculators.html', 'nav_calc_all'], ['/emi-calculator.html', 'nav_calc_emi'], ['/currency-calculator.html', 'nav_calc_curr'], ['/dob-calculator.html', 'nav_calc_dob']];
   return /*#__PURE__*/React.createElement(LanguageContext.Provider, {
     value: lang
   }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("header", null, /*#__PURE__*/React.createElement("div", {
