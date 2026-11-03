@@ -619,42 +619,7 @@ const onLangLink=e=>{const a=e.target.closest('a[href]');if(!a||e.ctrlKey||e.met
   }, /*#__PURE__*/React.createElement("button", {
     className: "btn btn-primary",
     onClick: () => setPage('services')
-  }, t('btn_view_services')), /*#__PURE__*/React.createElement("a", {
-    className: "btn btn-ghost",
-    href: "tel:+918219037234"
-  }, /*#__PURE__*/React.createElement("svg", {
-    className: "inline-contact-icon",
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: "1.8",
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    "aria-hidden": "true"
-  }, /*#__PURE__*/React.createElement("path", {
-    d: "M7 3H4a1 1 0 00-1 1c0 9.4 7.6 17 17 17a1 1 0 001-1v-3l-5-2-2 2a15 15 0 01-7-7l2-2z"
-  })), /*#__PURE__*/React.createElement(LocalText, {
-    text: "Call Now"
-  })), /*#__PURE__*/React.createElement("a", {
-    className: "btn btn-whatsapp",
-    href: lang === 'hi' ? HI_ENQUIRY_LINKS.welcome.href : "https://wa.me/918219037234?text=Welcome%20to%20Jan%20Seva%20Point%2C%20how%20may%20I%20assist%20you%3F",
-    target: "_blank",
-    rel: "noopener",
-    onClick: e => openWhatsApp(e, lang === 'hi' ? HI_ENQUIRY_LINKS.welcome.message : 'Welcome to Jan Seva Point, how may I assist you?')
-  }, /*#__PURE__*/React.createElement("svg", {
-    className: "inline-contact-icon",
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: "1.8",
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    "aria-hidden": "true"
-  }, /*#__PURE__*/React.createElement("path", {
-    d: "M21 11.5a9 9 0 01-13.4 7.8L3 21l1.7-4.6A9 9 0 1121 11.5z"
-  }), /*#__PURE__*/React.createElement("path", {
-    d: "M8 7c0 5 4 9 9 9l1-3-3-1-1 2c-2-1-3-2-4-4l2-1-1-3z"
-  })), " WhatsApp"))), /*#__PURE__*/React.createElement("div", {
+  }, t('btn_view_services')))), /*#__PURE__*/React.createElement("div", {
     className: "hero-art"
   }, /*#__PURE__*/React.createElement("div", {
     className: "hero-panel"
