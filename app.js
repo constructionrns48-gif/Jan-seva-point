@@ -621,11 +621,7 @@ const onLangLink=e=>{const a=e.target.closest('a[href]');if(!a||e.ctrlKey||e.met
     onClick: () => setPage('services')
   }, t('btn_view_services')))), /*#__PURE__*/React.createElement("div", {
     className: "hero-art"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "hero-panel"
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("span", null, t('panel_phone')), /*#__PURE__*/React.createElement("b", null, /*#__PURE__*/React.createElement("a", {
-    href: "tel:+918219037234"
-  }, "+91 82190 37234"))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("span", null, t('panel_hours')), /*#__PURE__*/React.createElement("b", null, t('hours_val'))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("span", null, t('panel_address')), /*#__PURE__*/React.createElement("b", null, t('address_val')))))), /*#__PURE__*/React.createElement("div", {
+  }, React.createElement("a", {className: "home-driving-card", href: "/services-driving-school-admission-amb.html"}, React.createElement("span", {className:"hd-kicker"}, "Jan Seva Point · Amb, Una"), React.createElement("h2", null, lang === "hi" ? "ड्राइविंग स्कूल प्रवेश" : "Driving school admission"), React.createElement("p", null, lang === "hi" ? "प्रवेश संबंधी जानकारी, लाइसेंस सहायता और बाहर से आने वाले छात्रों के लिए मदद। ट्रेनिंग ड्राइविंग स्कूल देता है।" : "Admission enquiries, licence help and support for outstation students. Training is provided by the driving school."), React.createElement("span", {className:"hd-link"}, lang === "hi" ? "प्रवेश सहायता देखें ↗" : "Explore admission help ↗")))), /*#__PURE__*/React.createElement("div", {
     className: "home-extra"
   }, /*#__PURE__*/React.createElement("h2", null, t('home_extra_title')), /*#__PURE__*/React.createElement("p", null, t('home_extra_p1')), /*#__PURE__*/React.createElement("p", null, t('home_extra_p2')), /*#__PURE__*/React.createElement("div", {
     className: "rate-note"
