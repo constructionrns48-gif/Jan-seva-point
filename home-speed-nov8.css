@@ -1,0 +1,7 @@
+/* Reserve the tallest original artwork ratio at every width. No image cropping. */
+.banner-slider,.banner-slider:has(.banner-slide:nth-child(5).active){height:auto;min-height:0;aspect-ratio:auto;padding-bottom:32px}
+.banner-slider::before{content:"";display:block;padding-top:66.6666667%;pointer-events:none}
+.banner-slide,.banner-slide.active{position:absolute;inset:0 0 32px;height:auto;display:flex;align-items:center;justify-content:center}
+.banner-slide .banner-artwork{display:block;width:100%;height:100%;object-fit:contain;object-position:center}
+/* Composite the existing ticker movement without changing its timing. */
+.jsp-ticker .jsp-track{will-change:transform}
