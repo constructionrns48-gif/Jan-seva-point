@@ -127,7 +127,13 @@ const HI = {
   "All Una District": "पूरा ऊना जिला",
   "Mubarakpur": "मुबारकपुर",
   "Daulatpur": "दौलतपुर",
-  "Dhautpur": "धौतपुर",
+  "Gagret": "गगरेट",
+"Andora": "अंदौरा",
+"Bangana": "बंगाणा",
+"Haroli": "हरोली",
+"Mehatpur": "मैहतपुर",
+"Chintpurni": "चिंतपूर्णी",
+"Nangal": "नंगल",
   "Kalruhi": "कलरुही",
   "Nehria Road": "नेहरिया रोड",
   "All Himachal Pradesh": "पूरा हिमाचल प्रदेश",
@@ -628,7 +634,7 @@ const onLangLink=e=>{const a=e.target.closest('a[href]');if(!a||e.ctrlKey||e.met
     className: "rate-note"
   }, t('home_rate_note')), /*#__PURE__*/React.createElement("div", {
     className: "areas"
-  }, ['Amb', 'Una', 'All Una District', 'Mubarakpur', 'Daulatpur', 'Dhautpur', 'Kalruhi', 'Nehria Road', 'All Himachal Pradesh'].map(a => /*#__PURE__*/React.createElement("span", {
+  }, ["Amb", "Una", "All Una District", "Mubarakpur", "Daulatpur", "Kalruhi", "Gagret", "Andora", "Bangana", "Haroli", "Mehatpur", "Chintpurni", "Nangal", "All Himachal Pradesh"].map(a => /*#__PURE__*/React.createElement("span", {
     key: tr(a, lang),
     className: "area-tag"
   }, tr(a, lang))))), /*#__PURE__*/React.createElement("div", {
